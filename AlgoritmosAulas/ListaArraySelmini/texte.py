@@ -1,0 +1,1 @@
+i = int(prin("Você gostaria de prestar uma occorencia?\n0 - Sim\n1 - Não"))

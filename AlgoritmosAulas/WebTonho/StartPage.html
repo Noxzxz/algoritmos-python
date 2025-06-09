@@ -1,0 +1,25 @@
+import React from 'react';
+import Image from 'next/image';
+
+const TelaInicial = () => {
+    return (
+        <div className="flex items-center justify-center h-screen bg-gray-100">
+            <div className="w-4/5 h-3/5 flex shadow-2xl rounded-2xl overflow-hidden">
+                <div className="relative" style={{ width: '78%' }}>
+                    <div
+                        alt="Imagem de fundo" 
+                        className="absolute top-0 left-0 right-0 bottom-0 bg-blue-500"
+                    ></div>
+                </div>
+                <div className="w-3/5 p-8 flex flex-col justify-center bg-gray-50 relative z-10 top-5 rigth-5">
+                    <h2 className="text-2xl font-bold mb-4">Login</h2>
+                    <input type="text" placeholder="Usuário" className="mb-4 p-2 border rounded-lg" />
+                    <input type="password" placeholder="Senha" className="mb-4 p-2 border rounded-lg" />
+                    <button className="bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">Entrar</button>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default TelaInicial;

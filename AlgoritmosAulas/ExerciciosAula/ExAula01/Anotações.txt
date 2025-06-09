@@ -1,0 +1,11 @@
+1. Defina Algoritmos. Tente definir com suas próprias palavras, sem fazer consulta ao material.
+    algoritmos são codigos computacionais que são feitos para executarem um devida demanda, como um calculo e etc
+2. O que são variáveis? Por que são utilizadas em um programa?
+    
+3. O que são tipos de dados?
+
+4. O que são linguagens de programação? Tente definir com suas próprias palavras.
+
+5. Qual a vantagem do processo de compilação e do processo de tradução?
+
+6. Qual a desvantagem do processo de compilação e do processo de tradução?
