@@ -1,4 +1,6 @@
 # Entrada dos dados
+import random
+
 pA = float(input("População do país A (em mil): "))
 pB = float(input("População do país B (em mil): "))
 tA = float(input("Taxa de crescimento anual do país A (%): "))
