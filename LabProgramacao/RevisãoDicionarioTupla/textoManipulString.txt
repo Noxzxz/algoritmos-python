@@ -1,0 +1,234 @@
+---
+
+# 🧠 REVISÃO — Manipulação de Texto em Python (`str`)
+
+## 🔹 O que é uma string
+
+* **String** = sequência imutável de caracteres (letras, números, símbolos, espaços).
+* Delimitadores: `'texto'`, `"texto"`, `'''texto'''`, `"""texto"""`.
+* Pode conter **quebras de linha**, **caracteres especiais** e **interpolação de variáveis**.
+
+---
+
+## 🔹 Acesso e Fatiamento
+
+```python
+s = "Python"
+
+s[0]       # 'P' — primeiro caractere
+s[-1]      # 'n' — último
+s[1:4]     # 'yth' — do índice 1 até 3
+s[:3]      # 'Pyt' — início até 2
+s[3:]      # 'hon' — do 3 até o fim
+s[::-1]    # 'nohtyP' — string invertida
+```
+
+---
+
+## 🔹 Operações básicas
+
+| Operação     | Exemplo          | Resultado  |
+| ------------ | ---------------- | ---------- |
+| Concatenação | `'Py' + 'thon'`  | `'Python'` |
+| Repetição    | `'ha' * 3`       | `'hahaha'` |
+| Comprimento  | `len(s)`         | `6`        |
+| Verificação  | `'th' in s`      | `True`     |
+| Igualdade    | `'abc' == 'ABC'` | `False`    |
+
+---
+
+## 🔹 Iteração e Condições
+
+```python
+s = "banana"
+
+# Percorrer cada letra
+for c in s:
+    print(c)
+
+# Contar vogais
+count = 0
+for c in s:
+    if c in "aeiou":
+        count += 1
+print("Vogais:", count)
+```
+
+---
+
+## 🔹 Métodos principais de string
+
+### 🔸 Consulta e busca
+
+| Método         | Exemplo        | Resultado                              |
+| -------------- | -------------- | -------------------------------------- |
+| `s.find('a')`  | `'banana' → 1` | índice da 1ª ocorrência ou -1          |
+| `s.rfind('a')` | `'banana' → 5` | última ocorrência                      |
+| `s.index('n')` | `'banana' → 2` | igual ao `find`, mas erro se não achar |
+| `s.count('a')` | `'banana' → 3` | número de ocorrências                  |
+| `'ana' in s`   | `True`         | verifica se existe substring           |
+
+---
+
+### 🔸 Transformações
+
+| Método                    | Exemplo                                       | Resultado |
+| ------------------------- | --------------------------------------------- | --------- |
+| `s.upper()`               | `'abc' → 'ABC'`                               |           |
+| `s.lower()`               | `'ABC' → 'abc'`                               |           |
+| `s.title()`               | `'olá mundo' → 'Olá Mundo'`                   |           |
+| `s.capitalize()`          | `'python' → 'Python'`                         |           |
+| `s.swapcase()`            | `'PyTHon' → 'pYthON'`                         |           |
+| `s.strip()`               | `'  oi  ' → 'oi'` (remove espaços das pontas) |           |
+| `s.lstrip() / s.rstrip()` | remove apenas à esquerda/direita              |           |
+| `s.replace('a', 'x')`     | `'banana' → 'bxnxnx'`                         |           |
+
+---
+
+### 🔸 Quebra e junção
+
+| Método                  | Exemplo                                   | Resultado |
+| ----------------------- | ----------------------------------------- | --------- |
+| `s.split()`             | `'a b c' → ['a','b','c']`                 |           |
+| `s.split(',')`          | `'1,2,3' → ['1','2','3']`                 |           |
+| `' '.join(lista)`       | `['a','b'] → 'a b'`                       |           |
+| `' - '.join(['A','B'])` | `'A - B'`                                 |           |
+| `s.partition(':')`      | `'chave:valor' → ('chave', ':', 'valor')` |           |
+
+---
+
+### 🔸 Testes lógicos
+
+| Método               | Exemplo           | Resultado |
+| -------------------- | ----------------- | --------- |
+| `s.startswith('Py')` | `'Python' → True` |           |
+| `s.endswith('on')`   | `'Python' → True` |           |
+| `s.isalpha()`        | `'abc' → True`    |           |
+| `s.isdigit()`        | `'123' → True`    |           |
+| `s.isalnum()`        | `'abc123' → True` |           |
+| `s.isspace()`        | `'   ' → True`    |           |
+| `s.islower()`        | `'abc' → True`    |           |
+| `s.isupper()`        | `'ABC' → True`    |           |
+
+---
+
+## 🔹 Formatação de strings
+
+### 1️⃣ **F-strings (Python 3.6+)**
+
+```python
+nome = "Ihan"
+idade = 20
+print(f"Meu nome é {nome} e tenho {idade} anos.")
+```
+
+### 2️⃣ **Método format**
+
+```python
+print("Meu nome é {} e tenho {} anos".format(nome, idade))
+print("Idade: {1}, Nome: {0}".format(nome, idade))
+print("Preço: {:.2f}".format(3.456))  # duas casas decimais
+```
+
+### 3️⃣ **Antigo estilo (%)**
+
+```python
+print("Nome: %s | Idade: %d" % (nome, idade))
+```
+
+---
+
+## 🔹 Métodos de alinhamento e preenchimento
+
+| Método              | Exemplo                   | Resultado |
+| ------------------- | ------------------------- | --------- |
+| `s.center(10, '-')` | `'Python' → '--Python--'` |           |
+| `s.ljust(10, '.')`  | `'Python' → 'Python....'` |           |
+| `s.rjust(10, '.')`  | `'Python' → '....Python'` |           |
+| `'5'.zfill(3)`      | `'005'`                   |           |
+
+---
+
+## 🔹 Trabalhar com múltiplas linhas
+
+```python
+texto = """Linha 1
+Linha 2
+Linha 3"""
+print(texto)
+
+# Quebra manual de linha:
+linha = "Olá\nMundo"
+```
+
+---
+
+## 🔹 Exemplos de uso com `if`, `for` e `in`
+
+```python
+frase = "Python é incrível!"
+
+# Contar palavras
+palavras = frase.split()
+print("Número de palavras:", len(palavras))
+
+# Procurar uma palavra
+if "Python" in frase:
+    print("A frase fala sobre Python!")
+
+# Substituir vogais por *
+nova = ""
+for c in frase:
+    if c.lower() in "aeiou":
+        nova += "*"
+    else:
+        nova += c
+print(nova)  # Pyth*n é *ncrív*l!
+```
+
+---
+
+## 🔹 Conversões
+
+```python
+num = 123
+s = str(num)       # '123'
+x = int("42")      # 42
+y = float("3.14")  # 3.14
+```
+
+---
+
+## 🔹 Exercício clássico de prova
+
+**Contar frequência de cada letra:**
+
+```python
+texto = "banana"
+freq = {}
+for c in texto:
+    freq[c] = freq.get(c, 0) + 1
+print(freq)
+# {'b': 1, 'a': 3, 'n': 2}
+```
+
+---
+
+## ✅ RESUMO RÁPIDO (para memorizar)
+
+| Ação                 | Função                          |
+| -------------------- | ------------------------------- |
+| Tudo maiúsculo       | `upper()`                       |
+| Tudo minúsculo       | `lower()`                       |
+| Capitalizar 1ª letra | `capitalize()`                  |
+| Remover espaços      | `strip()`                       |
+| Contar letras        | `count(x)`                      |
+| Substituir           | `replace(a, b)`                 |
+| Verificar início/fim | `startswith(x)` / `endswith(x)` |
+| Quebrar string       | `split()`                       |
+| Juntar lista         | `' '.join(lista)`               |
+| Procurar índice      | `find(x)`                       |
+| Ver se contém        | `in`                            |
+| Tamanho              | `len()`                         |
+
+---
